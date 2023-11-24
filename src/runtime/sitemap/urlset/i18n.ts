@@ -42,8 +42,9 @@ export function normaliseI18nSources(sources: SitemapSourceResolved[], { autoI18
                     if (_localeCode === autoI18n.defaultLocale)
                       defaultPath = u.loc
                     if (pathWithoutPrefix === _pathWithoutPrefix) {
+                      console.log("hreflang is :",_localeCode, ",href is : ",u.loc,"; u.alternatives : ",u.alternatives)
                       return <AlternativeEntry>{
-                        href: u.loc,
+                        href: u.loc + "/gaoxu",
                         hreflang: _localeCode || autoI18n.defaultLocale,
                       }
                     }
