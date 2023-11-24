@@ -121,6 +121,7 @@ export async function buildSitemap(sitemap: SitemapDefinition, resolvers: NitroU
   // TODO enable
   if (autoI18n?.locales)
     enhancedUrls = applyI18nEnhancements(enhancedUrls, { isI18nMapped, autoI18n, sitemapName: sitemap.sitemapName })
+  console.log("before filtered urls , the enhancedUrls is :" , enhancedUrls);
   // 3. filtered urls
   // TODO make sure include and exclude start with baseURL?
   const filteredUrls = filterSitemapUrls(enhancedUrls, { isMultiSitemap, autoI18n, ...sitemap })
@@ -138,7 +139,10 @@ export async function buildSitemap(sitemap: SitemapDefinition, resolvers: NitroU
   await nitro.hooks.callHook('sitemap:resolved', ctx)
 
   // final urls
+  console.log("start final urls");
+  console.log("ctx.urls is :",ctx.urls);
   const urls = maybeSort(normaliseSitemapUrls(ctx.urls, resolvers))
+  console.log("final urls is :" ,urls);
 
   const urlset = urls.map((e) => {
     const keys = Object.keys(e).filter(k => !k.startsWith('_'))
