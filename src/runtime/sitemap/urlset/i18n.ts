@@ -101,7 +101,7 @@ export function applyI18nEnhancements(_urls: ResolvedSitemapUrl[], options: Pick
       }
       // keep single entry, just add alternatvies
       if (autoI18n.differentDomains) {
-        return {
+        let bbbbb =  {
           // will force it to pass filter
           _sitemap: options.sitemapName,
           ...e,
@@ -121,6 +121,8 @@ export function applyI18nEnhancements(_urls: ResolvedSitemapUrl[], options: Pick
               }
             }),
         }
+        console.log("bbbbb is : ",bbbbb);
+        return bbbbb;
       }
       // need to add urls for all other locales
       return autoI18n.locales
