@@ -62,7 +62,7 @@ export function normaliseSitemapUrls(data: SitemapUrlInput[], resolvers: NitroUr
 
     // need to make sure siteURL doesn't have the base on the end
     e.loc = resolve(e.loc, resolvers)
-
+    console.log("-----------------",e.alternatives)
     // correct alternative hrefs
     if (e.alternatives) {
       e.alternatives = mergeOnKey(e.alternatives.map((e) => {
