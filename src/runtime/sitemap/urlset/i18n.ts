@@ -16,6 +16,7 @@ export function normaliseI18nSources(sources: SitemapSourceResolved[], { autoI18
         url.loc = withLeadingSlash(url.loc)
         return url
       })
+      console.log("normaliseI18nSources 1: ",urls);
       s.urls = urls.map((url) => {
         // only if the url wasn't already configured, excludes page, etc
         if (url._sitemap || url._i18nTransform)
@@ -70,6 +71,7 @@ export function normaliseI18nSources(sources: SitemapSourceResolved[], { autoI18
         }
         return url
       })
+      console.log("normaliseI18nSources 2: ",s);
       return s
     })
   }
