@@ -89,6 +89,7 @@ export async function resolveSitemapSources(sources: (SitemapSourceBase | Sitema
   return (await Promise.all(
     sources.map((source) => {
       if (typeof source === 'object' && 'urls' in source) {
+        console.log("source.urls is : ",source.urls);
         return <SitemapSourceResolved> {
           timeTakenMs: 0,
           ...source,
