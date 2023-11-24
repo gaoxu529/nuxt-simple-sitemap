@@ -90,6 +90,9 @@ export async function resolveSitemapSources(sources: (SitemapSourceBase | Sitema
     sources.map((source) => {
       if (typeof source === 'object' && 'urls' in source) {
         console.log("source.urls is : ",source.urls);
+        if(source.urls.length>0 && source.urls[0].alternatives){
+          console.log("source.urls[0].alternatives is : ",source.urls[0].alternatives);
+        }
         return <SitemapSourceResolved> {
           timeTakenMs: 0,
           ...source,
